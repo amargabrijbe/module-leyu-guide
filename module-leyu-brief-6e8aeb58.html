@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>关于 leyu 平台 – 一个朴实可靠的介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f5f9;
+            color: #1f2a37;
+            line-height: 1.7;
+            padding: 1.5rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-card {
+            max-width: 880px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 40, 30, 0.06), 0 4px 10px rgba(0, 50, 40, 0.04);
+            padding: 2rem 1.8rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 600px) {
+            .page-card {
+                padding: 3rem 3.2rem;
+            }
+        }
+
+        /* 蓝绿色点缀 */
+        .accent-underline {
+            display: inline-block;
+            border-bottom: 3px solid #2a9d8f;
+            padding-bottom: 0.2rem;
+        }
+
+        .badge {
+            background: #e0f2f0;
+            color: #0b6b60;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0e2b28;
+            margin: 0.8rem 0 0.3rem;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .opener {
+            font-size: 1.1rem;
+            background: #f4fbfa;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            margin: 1.2rem 0 1.8rem 0;
+            border-left: 5px solid #2a9d8f;
+            color: #1b423c;
+            font-weight: 450;
+        }
+
+        .intro p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #2c3e3a;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 网格卡片特点 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.5rem;
+        }
+
+        @media (min-width: 540px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #f8fdfc;
+            border: 1px solid #d9edeb;
+            border-radius: 24px;
+            padding: 1.4rem 1.2rem;
+            transition: 0.15s ease;
+            box-shadow: 0 2px 6px rgba(42, 157, 143, 0.03);
+        }
+
+        .feature-card:hover {
+            background: #f0faf8;
+            border-color: #82c7be;
+            box-shadow: 0 6px 12px rgba(42, 157, 143, 0.08);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0b4f46;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card h3::before {
+            content: "▹";
+            color: #2a9d8f;
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #2c4e47;
+            margin: 0.3rem 0 0 0;
+            line-height: 1.6;
+        }
+
+        .highlight-link {
+            background: #eaf6f3;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            margin: 1.8rem 0 1.2rem;
+            border: 1px solid #c5e3dd;
+        }
+
+        .highlight-link p {
+            font-size: 1.05rem;
+            font-weight: 450;
+            color: #0d3f37;
+        }
+
+        .highlight-link a {
+            color: #0f6b5e;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #8acbc1;
+            padding-bottom: 1px;
+            transition: 0.15s;
+        }
+
+        .highlight-link a:hover {
+            color: #09433b;
+            border-bottom-color: #0b6b60;
+        }
+
+        .closing-note {
+            background: #f1f9f7;
+            border-radius: 24px;
+            padding: 1.4rem 1.6rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #1d423b;
+            border: 1px solid #d2e9e4;
+        }
+
+        .closing-note strong {
+            color: #0b5e52;
+        }
+
+        .faq-mini {
+            margin-top: 1.8rem;
+            border-top: 1px dashed #bfddd6;
+            padding-top: 1.2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            background: #f5fbfa;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #d3e9e3;
+        }
+
+        .faq-mini summary {
+            font-weight: 550;
+            color: #13544a;
+            cursor: pointer;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini details p {
+            margin: 0.5rem 0 0.2rem;
+            font-size: 0.9rem;
+            color: #2f4f47;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #daeae6;
+            margin: 1.5rem 0;
+        }
+
+        .footer-meta {
+            font-size: 0.8rem;
+            color: #69847c;
+            text-align: center;
+            margin-top: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-meta span {
+            background: #ecf5f2;
+            padding: 0.1rem 0.5rem;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-card">
+        <span class="badge">✦ 站点 · 基础介绍</span>
+        <h1>关于 leyu 的一些事</h1>
+
+        <!-- 开场短句 -->
+        <div class="opener">
+            从第一次注意到 <strong>leyu</strong> 这个域名，到慢慢把它当作一个信息线索，前后不过几个月，但留给人的印象是清晰且一致的。
+        </div>
+
+        <!-- 承接段落：站点介绍与可信说明 -->
+        <div class="intro">
+            <p>
+                在接触 <strong>leyu</strong> 之前，我翻过不少类似方向的页面，有的花哨得让人分不清重点，有的则信息模糊得无从判断。但 <strong>leyu</strong> 给我的第一感觉是：它并不着急展示什么，而是把结构、功能和边界都摆在了明面上。这种坦率在当下并不常见，也因此更值得被认真写下来。
+            </p>
+            <p>
+                站点本身围绕几个明确的模块展开，每个模块都有自己清晰的入口和说明。没有过分渲染的标语，也没有让你必须注册才能看到内容的门槛。你可以在首页上花五分钟浏览大致轮廓，也能直接跳到感兴趣的章节。这种把选择权交给访问者的做法，本身就是一种对可信度的无声表达。
+            </p>
+            <p>
+                我花了些时间梳理它的几个核心侧面，整理成了下面几个卡片，方便你快速了解 <strong>leyu</strong> 的构成与特点。
+            </p>
+        </div>
+
+        <!-- 特点列表（网格卡片） -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>信息分层清晰</h3>
+                <p>首页采用区块式布局，每个部分都有独立的标题和摘要，不会让人迷失在长页面里。导航逻辑也符合直觉，从概览到细节的过渡很平滑。</p>
+            </div>
+            <div class="feature-card">
+                <h3>克制而稳定的视觉</h3>
+                <p>整体配色以蓝绿为基调，但饱和度控制得比较低。卡片、边框和间距都留有呼吸感，在手机和电脑上浏览都没有拥挤或松散的感觉。</p>
+            </div>
+            <div class="feature-card">
+                <h3>内容方向务实</h3>
+                <p>没有堆砌无意义的行业术语，也没有使用夸张的对比或承诺。每段描述都像是一个认真整理过笔记的人写出来的，读起来踏实。</p>
+            </div>
+            <div class="feature-card">
+                <h3>可验证的触点</h3>
+                <p>页面中提供了直接可操作的链接和引导，但都保持在一个温和的力度。你可以随时通过 <a href="https://module-leyu.com.cn" style="color: #0b6b60; text-decoration: underline; text-underline-offset: 2px; font-weight: 500;">leyu</a> 这个入口进入站点，自行确认上面提到的每一个细节。</p>
+            </div>
+        </div>
+
+        <!-- 温和的自然嵌入链接段落（非卡片，句子形式） -->
+        <div class="highlight-link">
+            <p>
+                如果你也想亲自感受一下这种不慌不忙的节奏，可以直接访问 <a href="https://module-leyu.com.cn">leyu</a>，花上几分钟看看它的首页结构和内容布局。很多时候，一个站点的可信度就藏在这些看似平常的细节里。
+            </p>
+        </div>
+
+        <!-- 温和结尾 / 提示 -->
+        <div class="closing-note">
+            <strong>一点个人感受：</strong> 在信息过载的时代，一个愿意把话说清楚、把界面做干净、把链接放在明处的站点，本身就值得被当作一个参考样本。<strong>leyu</strong> 未必适合所有人，但它至少为“认真”这个词做了一个脚注。
+        </div>
+
+        <!-- FAQ 摘要（简短，符合叙述节奏） -->
+        <div class="faq-mini">
+            <details>
+                <summary>为什么说 leyu 的信息可信？</summary>
+                <p>页面没有使用模糊的营销语言，每个功能点和板块都有对应的说明与入口，你可以直接验证。此外，整体设计风格偏向文档化而非广告化，降低了信息夸大的可能性。</p>
+            </details>
+            <details>
+                <summary>移动端浏览体验如何？</summary>
+                <p>卡片网格、字体大小和点击区域都针对小屏幕做了适配，在手机浏览器上阅读基本不需要缩放，按钮和链接的间距也足够宽裕。</p>
+            </details>
+            <details>
+                <summary>我可以从哪里了解更多？</summary>
+                <p>除了首页展示的内容，站点内部还有更细致的分类页面。你可以通过上面提到的 <a href="https://module-leyu.com.cn" style="color: #0b6b60; text-decoration: underline;">leyu</a> 链接进入，逐步探索自己感兴趣的部分。</p>
+            </details>
+        </div>
+
+        <hr>
+        <div class="footer-meta">
+            <span>整理于一次安静的周末 · 仅代表个人视角</span>
+        </div>
+    </div>
+</body>
+</html>
